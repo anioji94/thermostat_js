@@ -12,6 +12,10 @@ class ThermoStat {
 	}
 
 	downTemp() {
-		this.temp -= 1;
+		if(this.temp > 10){
+			this.temp -= 1;
+		} else {
+				return "Temperature can't go below 10";
+		}
 	}
 }
