@@ -3,7 +3,7 @@ describe('ThermoStat', function() {
 		thermo = new ThermoStat();
 	});
 // Thermostat starts at 20 degrees
-	
+
 	describe('#viewTemp', function() {
 		it('should show 20 degrees by default', function() {
 
@@ -33,5 +33,12 @@ describe('ThermoStat', function() {
 			expect(thermo.downTemp(10)).toBe("Temperature can't go below 10")
 		});
 	});
-});
 
+	describe('#powersaving', function() {
+		it('power-saving mode is on by default', function () {
+			expect(thermo.powersaving()).toBe(true)
+		});
+
+	});
+
+});

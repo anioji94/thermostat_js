@@ -1,6 +1,7 @@
 class ThermoStat {
 	constructor() {
 		this.temp = 20;
+		//this.powersaving = true
 	}
 
 	viewTemp() {
@@ -9,6 +10,8 @@ class ThermoStat {
 
 	upTemp(num = 1) {
 		this.temp += num;
+		// is power saving on? if so...
+		// is power saving off
 	}
 
 	downTemp(num = 1) {
@@ -18,4 +21,12 @@ class ThermoStat {
 				return "Temperature can't go below 10";
 		}
 	}
+
+	//power-saving on/off method
+
 }
+
+// power-saving mode is on by default - something in
+// our constrcutor method
+//
+//
