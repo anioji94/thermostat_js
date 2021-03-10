@@ -30,13 +30,7 @@ describe('ThermoStat', function() {
 			// for loop to repeat code until it reaches 10
 			// expect an error message to appear
 
-			var i ;
-			for (i = 0; i < 10; i++) {
-				thermo.downTemp();
-			}
-			expect(thermo.viewTemp()).toBe(10);
-			// here is where I'll expect an error
-			expect(thermo.downTemp()).toBe("Temperature can't go below 10")
+			expect(thermo.downTemp(10)).toBe("Temperature can't go below 10")
 		});
 	});
 });

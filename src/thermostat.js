@@ -7,13 +7,13 @@ class ThermoStat {
 		return this.temp;
 	}
 
-	upTemp() {
-		this.temp += 1;
+	upTemp(num = 1) {
+		this.temp += num;
 	}
 
-	downTemp() {
-		if(this.temp > 10){
-			this.temp -= 1;
+	downTemp(num = 1) {
+		if(this.temp - num > 10){
+			this.temp -= num;
 		} else {
 				return "Temperature can't go below 10";
 		}
