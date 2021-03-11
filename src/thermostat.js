@@ -1,7 +1,8 @@
 class ThermoStat {
 	constructor() {
 		this.temp = 20;
-		//this.powersaving = true
+		this.powersaving = true;
+		
 	}
 
 	viewTemp() {
@@ -15,7 +16,7 @@ class ThermoStat {
 	}
 
 	downTemp(num = 1) {
-		if(this.temp - num > 10){
+		if(this.temp - num >= 10){
 			this.temp -= num;
 		} else {
 				return "Temperature can't go below 10";

@@ -30,13 +30,19 @@ describe('ThermoStat', function() {
 			// for loop to repeat code until it reaches 10
 			// expect an error message to appear
 
-			expect(thermo.downTemp(10)).toBe("Temperature can't go below 10")
+			expect(thermo.downTemp(11)).toBe("Temperature can't go below 10")
 		});
 	});
 
 	describe('#powersaving', function() {
 		it('power-saving mode is on by default', function () {
-			expect(thermo.powersaving()).toBe(true)
+			expect(thermo.powersaving).toBe(true)
+		});
+
+		it('while active, locks the max temp at 25 degrees', function() {
+			expect(thermo.upTemp(6)).toBe("Powersaving is active. Temp locked at 25.")
+
+
 		});
 
 	});
