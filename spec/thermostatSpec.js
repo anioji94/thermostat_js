@@ -57,9 +57,29 @@ describe('ThermoStat', function() {
 
 	describe('#reset', function() {
 		it('resets the default temp to 20 degrees', function() {
-			thermo.upTemp().reset();
+			thermo.upTemp();
+			thermo.reset();
 			expect(thermo.temp).toBe(20);
 		});
-	})
+	});
+
+// You can ask about the thermostat's current energy usage:
+// < 18 is low-usage, <= 25 is medium-usage, anything else is high-usage.
+	describe("#current_usage", function() {
+		  it("returns current_usage: < 18 is low-usage, <= 25 is medium-usage, anything else is high-usage", function() {
+				// temp is 20
+				expect(thermo.current_usage()).toBe("Medium-Usage");
+				// take temp to 26
+				thermo.upTemp(6);
+				expect(thermo.current_usage()).toBe("High-Usage");
+				// take temp to 17
+				thermo.downTemp(9);
+				expect(thermo.current_usage()).toBe("Low-Usage");
+			});
+	});
+
+
+
+
 
 });

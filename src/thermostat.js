@@ -2,7 +2,6 @@ class ThermoStat {
 	constructor() {
 		this.temp = 20;
 		this.powersaving = true;
-
 	}
 
 	viewTemp() {
@@ -25,6 +24,10 @@ class ThermoStat {
 		} else {
 				return "Temperature can't go below 10";
 		}
+	}
+
+	reset() {
+		this.temp = 20;
 	}
 
 	//power-saving on/off method
