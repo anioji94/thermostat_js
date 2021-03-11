@@ -68,13 +68,14 @@ describe('ThermoStat', function() {
 	describe("#current_usage", function() {
 		  it("returns current_usage: < 18 is low-usage, <= 25 is medium-usage, anything else is high-usage", function() {
 				// temp is 20
-				expect(thermo.current_usage()).toBe("Medium-Usage");
+				expect(thermo.current_usage()).toBe("Medium-Usage")
+				thermo.powersaving = false;
 				// take temp to 26
 				thermo.upTemp(6);
-				expect(thermo.current_usage()).toBe("High-Usage");
+				expect(thermo.current_usage()).toBe("High-Usage")
 				// take temp to 17
 				thermo.downTemp(9);
-				expect(thermo.current_usage()).toBe("Low-Usage");
+				expect(thermo.current_usage()).toBe("Low-Usage")
 			});
 	});
 

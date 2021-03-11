@@ -4,6 +4,16 @@ class ThermoStat {
 		this.powersaving = true;
 	}
 
+	current_usage() {
+		if(this.temp < 18) {
+			return "Low-Usage";
+		} else if (this.temp <= 25) {
+			return "Medium-Usage";
+		} else if (this.temp > 25){
+			return "High-Usage";
+		}
+	}
+
 	viewTemp() {
 		return this.temp;
 	}
