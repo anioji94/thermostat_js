@@ -39,6 +39,11 @@ describe('ThermoStat', function() {
 			expect(thermo.powersaving).toBe(true)
 		});
 
+		it('power-saving mode can be turned off', function () {
+			thermo.powersaving = false
+			expect(thermo.powersaving).toBe(false)
+		});
+
 		it('while active, locks the max temp at 25 degrees', function() {
 			expect(thermo.upTemp(6)).toBe("Powersaving is active. Temp locked at 25.")
 		});
@@ -49,5 +54,12 @@ describe('ThermoStat', function() {
 		});
 
 	});
+
+	describe('#reset', function() {
+		it('resets the default temp to 20 degrees', function() {
+			thermo.upTemp().reset();
+			expect(thermo.temp).toBe(20);
+		});
+	})
 
 });

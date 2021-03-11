@@ -12,6 +12,8 @@ class ThermoStat {
 	upTemp(num = 1) {
 		if (this.powersaving === true && this.temp + num > 25) {
 			return "Powersaving is active. Temp locked at 25.";
+		} else if (this.powersaving === false && this.temp + num > 32) {
+			return "Max temp without Powersaving is 32.";
 		} else {
 				this.temp += num;
 		}
