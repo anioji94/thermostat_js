@@ -1,7 +1,11 @@
 class ThermoStat {
-	constructor() {
-		this.temp = 20;
-		this.powersaving = true;
+	constructor(temp = 20, powersaving = true, psmaxTemp = 25, maxTemp = 32, minTemp = 10) {
+		this.temp = temp;
+		this.initialTemp = temp;
+		this.powersaving = powersaving;
+		this.psmaxTemp = psmaxTemp;
+		this.maxTemp = maxTemp;
+		this.minTemp = minTemp
 	}
 
 	current_usage() {
@@ -19,25 +23,25 @@ class ThermoStat {
 	}
 
 	upTemp(num = 1) {
-		if (this.powersaving === true && this.temp + num > 25) {
-			return "Powersaving is active. Temp locked at 25.";
-		} else if (this.powersaving === false && this.temp + num > 32) {
-			return "Max temp without Powersaving is 32.";
+		if (this.powersaving === true && this.temp + num > this.psmaxTemp) {
+			return `Powersaving is active. Temp locked at ${this.psmaxTemp}.`;
+		} else if (this.powersaving === false && this.temp + num > this.maxTemp) {
+			return `Max temp without Powersaving is ${this.maxTemp}.`;
 		} else {
 				this.temp += num;
 		}
 	}
 
 	downTemp(num = 1) {
-		if(this.temp - num >= 10){
+		if(this.temp - num >= this.minTemp){
 			this.temp -= num;
 		} else {
-				return "Temperature can't go below 10";
+				return `Temperature can't go below ${this.minTemp}`;
 		}
 	}
 
 	reset() {
-		this.temp = 20;
+		this.temp = this.initialTemp;
 	}
 
 	//power-saving on/off method
