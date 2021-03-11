@@ -41,8 +41,11 @@ describe('ThermoStat', function() {
 
 		it('while active, locks the max temp at 25 degrees', function() {
 			expect(thermo.upTemp(6)).toBe("Powersaving is active. Temp locked at 25.")
+		});
 
-
+		it('locks the max temp at 32 degrees when not active', function() {
+			thermo.powersaving = false
+			expect(thermo.upTemp(13)).toBe("Max temp without Powersaving is 32.")
 		});
 
 	});

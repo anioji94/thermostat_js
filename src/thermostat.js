@@ -2,7 +2,7 @@ class ThermoStat {
 	constructor() {
 		this.temp = 20;
 		this.powersaving = true;
-		
+
 	}
 
 	viewTemp() {
@@ -10,9 +10,11 @@ class ThermoStat {
 	}
 
 	upTemp(num = 1) {
-		this.temp += num;
-		// is power saving on? if so...
-		// is power saving off
+		if (this.powersaving === true && this.temp + num > 25) {
+			return "Powersaving is active. Temp locked at 25.";
+		} else {
+				this.temp += num;
+		}
 	}
 
 	downTemp(num = 1) {
